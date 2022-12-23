@@ -4,10 +4,11 @@ let end = moment('2023-12-31')
 
 let count = end.diff(start, 'days')
 let data = {}
+let temp = start
 for (var i = 0; i <= count; i++){
-  let date = start.add(count, 'days').format('YYYY-MM-DD')
+  let date = new Date(start + i * 1000 * 60 * 60 * 24).toISOString().split('T')[0]
   data[date] = {
-    count: Math.ceil(Math.random() * 55),
+    count: date < new Date().toISOString().split('T')[0]? Math.ceil(Math.random() * 55) : 0,
     goal: 55
   }
 }
@@ -22,7 +23,7 @@ export const Data = [
   {
     "Task": "Situps",
     "Goal": 20000,
-    "History": data,
+    "History": data, 
     "Start": start,
     "End": end 
   },

@@ -20,6 +20,7 @@ https://reactnative.dev/docs/environment-setup
 * fix the props handoff > item.item/task.item is awkward af and my bad coding practice
 * Default of No Tasks Left
 * "Card" for Tomorrows
+* fix OB1 error in history calculation
 * store/generate new tasks
   * Default is 365 days from today
   * Tasks will create an object of goal dates

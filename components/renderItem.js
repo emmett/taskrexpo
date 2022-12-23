@@ -14,11 +14,12 @@ const RenderRight = (progress, dragX) => {
 export default function RenderItem(task, index){
   let item = task.item
   let total = _.reduce(item.History, (sum, i) => i.count+sum, 0)
-
   let days = moment(item.End).diff(moment(item.Start), 'days')
   let daysCompleted = moment().diff(moment(item.Start), 'days')
   let daysLeft = moment(item.End).diff(moment(), 'days') 
   let pace = Math.ceil((item.Goal - total) / daysLeft)
+
+
 
   return (
     <Swipeable renderRightActions={RenderRight}>
@@ -26,7 +27,7 @@ export default function RenderItem(task, index){
       <Text style={{fontWeight: '600'}}>{item.Goal} {item.Task} in {days > 1 ? days + " days" : days + " day"}</Text>
       <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 5}}>
         <Text>
-          Started {moment(item.Start).format("YYYY-MM-DD")}
+          Started {item.Start.format("YYYY-MM-DD")}
         </Text>
         <Text>
           End {moment(item.End).format("YYYY-MM-DD")}
@@ -40,7 +41,7 @@ export default function RenderItem(task, index){
           Pace {pace}
         </Text>
         <Text> 
-          History {_.size(_.filter(item.History, (item) => moment(item) <= moment()))} 
+          History {_.size(_.filter(item.History, (v, date) => date <= new Date().toISOString().split('T')[0]))} 
         </Text>
        
       </View>
