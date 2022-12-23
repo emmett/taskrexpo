@@ -1,4 +1,4 @@
-export const Tasks = [
+export const Data = [
   {
     "Task": "Pushups",
     "Goal": 20000,
