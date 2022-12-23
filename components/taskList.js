@@ -1,9 +1,8 @@
 import RenderItem from './renderItem';
-import { FlatList, Text, View} from 'react-native';
+import { FlatList, View} from 'react-native';
 
 
 export default function TaskList(props) {
-    console.log(props.data)
     let tasks = props.data
 
     return (

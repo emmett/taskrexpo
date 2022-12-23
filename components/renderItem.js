@@ -2,7 +2,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import moment from 'moment'
 import { MaterialIcons } from '@expo/vector-icons'
-
+import _ from 'lodash'
 const RenderRight = (progress, dragX) => {
   return (
     <View style={{backgroundColor:"red", alignItems: "center", justifyContent: 'center'}}>
@@ -13,11 +13,13 @@ const RenderRight = (progress, dragX) => {
 
 export default function RenderItem(task, index){
   let item = task.item
-  let total = item.History.reduce((sum, i) => sum+i, 0)
+  let total = _.reduce(item.History, (sum, i) => i.count+sum, 0)
+
   let days = moment(item.End).diff(moment(item.Start), 'days')
   let daysCompleted = moment().diff(moment(item.Start), 'days')
   let daysLeft = moment(item.End).diff(moment(), 'days') 
   let pace = Math.ceil((item.Goal - total) / daysLeft)
+
   return (
     <Swipeable renderRightActions={RenderRight}>
     <View style={styles.item}>
@@ -32,13 +34,13 @@ export default function RenderItem(task, index){
       </View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 5}}>
         <Text>
-          Completed {item.History.reduce((sum, i) => sum+i, 0) }
+          Completed {total}
         </Text>
         <Text> 
           Pace {pace}
         </Text>
         <Text> 
-          History {item.History.length} 
+          History {_.size(_.filter(item.History, (item) => moment(item) <= moment()))} 
         </Text>
        
       </View>
