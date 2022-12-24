@@ -1,3 +1,4 @@
+// Testing Git shortcut
 export default function Input({ name, label }) {
   return (
     <div>
