@@ -3,6 +3,7 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import moment from 'moment'
 import { MaterialIcons } from '@expo/vector-icons'
 import _ from 'lodash'
+
 const RenderRight = (progress, dragX) => {
   return (
     <View style={{backgroundColor:"red", alignItems: "center", justifyContent: 'center'}}>

@@ -53,23 +53,38 @@ Tasks view
 	Sorted by things with Activity Left for today
 
 
-### Expo Task Icons
+### Expo Emoticons
     icon directory
     https://icons.expo.fyi/
 
     plus minus
     plus-circle-multiple
 
+## Gestures
 ### onSwipeRight
-  check for pace
-	Should check goal.Id for history @ todays index, add pace count. 
+
+  Should check tasks history @ todays index, add remaining pace count. 
   
   This should take into account the total already done for today
+  
+### onLongSwipeRight
+  Edit, should bring up number entry. 
+  Add to history which changes Remaining for today
 
 ### onSwipeLeft
-  Edit, should bring up number entry. 
+  Should update Pace
   
-  Add to history which changes Left for today
+    Math.ceil(remaining total / remaining days)
+
+### onLongSwipeLeft
+  Update End Date
+  
+  Update Count
+   
+    AutoFill with current Pace * remaining + Completed
+    Minimum ∑ completed 
+    Should update Pace
+
 
 ### checkHistory 
   Allow for editing of previous days
