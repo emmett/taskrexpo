@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   addText: {
     fontSize: 25,
-    color: "#D3D3D3",
+    color: "#FFF",
   },
   addWrapper: {
     backgroundColor: "#1AA7EC",

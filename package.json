@@ -9,7 +9,10 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@expo/webpack-config": "^0.17.2",
+    "@mui/material": "^5.11.1",
     "expo": "~47.0.9",
     "expo-status-bar": "~1.4.2",
     "lodash": "^4.17.21",
