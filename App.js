@@ -1,4 +1,5 @@
-import { StyleSheet, View, Dimensions, Text, SafeAreaView } from 'react-native';
+import React, { Component } from 'react'
+import { Modal, Platform, KeyboardAvoidingView, TouchableOpacity, StyleSheet, View, Dimensions, Text, SafeAreaView } from 'react-native';
 import TaskList from './components/taskList';
 import { Data }from './data/data'
 
@@ -12,6 +13,14 @@ export default function App() {
     <View style={styles.container}>
       <SafeAreaView/>
       <TaskList data={Data} />
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? "padding" : "height"} style={styles.addTaskWrapper}>
+        <TouchableOpacity>
+          <View style={styles.addWrapper}>
+            <Text style={styles.addText}>+</Text>
+          </View>
+        </TouchableOpacity>
+
+      </KeyboardAvoidingView>
     </View>
   );
 }
@@ -29,5 +38,28 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 3, height: 3},
     marginVertical: 10,
     shadowOpacitcy: .9
+  },
+  addTaskWrapper: {
+    position: "absolute",
+    bottom: 60,
+    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  addText: {
+    fontSize: 25,
+    color: "#D3D3D3",
+  },
+  addWrapper: {
+    backgroundColor: "#1AA7EC",
+    width: 60,
+    height: 60,
+    padding: 15,
+    borderRadius: 60,
+    borderWidth: 1,
+    borderColor: "#C0C0C0",
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
