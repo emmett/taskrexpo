@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Import Components
 import TaskList from './components/taskList';
@@ -22,16 +23,17 @@ function DetailsScreen() {
 const Stack = createNativeStackNavigator();
 
 function App() {
+  const Tab = createBottomTabNavigator();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AddTask">
-        <Stack.Screen name="Home" >
+      <Tab.Navigator>
+        <Tab.Screen name="Home" >
           {(props) => <TaskList {...props} Data={Data} />}
-        </Stack.Screen>
-        <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="AddTask" component={AddTask} />
-      </Stack.Navigator>
+        </Tab.Screen>
+        <Tab.Screen name="Details" component={DetailsScreen} />
+        <Tab.Screen name="AddTask" component={AddTask} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
