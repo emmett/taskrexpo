@@ -2,9 +2,14 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Data } from "./data/data.js"
-import TaskList from './components/taskList';
+import { SafeAreaView } from 'react-native';
 
+// Import Components
+import TaskList from './components/taskList';
+import AddTask from './components/addTask.js'; 
+
+// Import Test Data
+import { Data } from "./data/data.js"
 
 function DetailsScreen() {
   return (
@@ -20,11 +25,12 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="AddTask">
         <Stack.Screen name="Home" >
           {(props) => <TaskList {...props} Data={Data} />}
         </Stack.Screen>
         <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="AddTask" component={AddTask} />
       </Stack.Navigator>
     </NavigationContainer>
   );

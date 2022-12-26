@@ -1,11 +1,17 @@
-import { Text, View} from 'react-native';
+import { View, Text } from 'react-native';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import { SafeAreaView } from 'react-native';
 
 export default function AddTask() {
-  return (
-    <View>
-      <Text>Add Task Input</Text>
-    </View>
-  )
-}
+  const handleSubmit = () => {
+    console.log('Submitted')
+  };
 
-// export default AddTask
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Hello</Text>
+    </View>
+  );
+}
