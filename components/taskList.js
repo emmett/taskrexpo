@@ -3,7 +3,7 @@ import { FlatList, View} from 'react-native';
 
 
 export default function TaskList(props) {
-    let tasks = props.data
+    let tasks = props.Data
 
     return (
       <View>
