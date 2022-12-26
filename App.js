@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -24,15 +24,24 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   const Tab = createBottomTabNavigator();
+  const [tasks, setTasks] = useState(Data);  
 
+  const addTaskFunction = (task) => {
+    let tmp = tasks.concat([task])
+    console.log(tmp.length)
+    setTasks(tmp)
+  }
+  
   return (
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Home" >
-          {(props) => <TaskList {...props} Data={Data} />}
+          {(props) => <TaskList {...props} Data={tasks} />}
         </Tab.Screen>
         <Tab.Screen name="Details" component={DetailsScreen} />
-        <Tab.Screen name="AddTask" component={AddTask} />
+        <Tab.Screen name="AddTask">
+          {(props) => <AddTask {...props} AddTaskFunction={addTaskFunction}/>}
+        </Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );
