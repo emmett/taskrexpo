@@ -1,15 +1,14 @@
-import RenderItem from './renderItem';
+import Task from './task';
 import { FlatList, View} from 'react-native';
 
 
 export default function TaskList(props) {
-    let tasks = props.data
-
+    let tasks = props.Data
     return (
       <View>
         <FlatList data={tasks} renderItem={({item, index}) => {
             return (
-              <RenderItem item={item} index={index}/> 
+              <Task item={item} index={index}/> 
             )
           }
         }/>

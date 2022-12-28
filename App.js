@@ -1,33 +1,46 @@
-import { StyleSheet, View, Dimensions, Text, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+// Import Components
 import TaskList from './components/taskList';
-import { Data }from './data/data'
+import AddTask from './components/addTask.js'; 
 
-//Set the width to screen sizes for resizeing
-const {width, height} = Dimensions.get('screen')
+// Import Test Data
+import { Data } from "./data/data.js"
 
-// Render the right actions
-
-export default function App() {
+function DetailsScreen() {
   return (
-    <View style={styles.container}>
-      <SafeAreaView/>
-      <TaskList data={Data} />
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-  },
-  item: {
-    padding: 15,
-    backgroundColor: "#ffffff",
-    shadowColor: "#cccccc",
-    shadowOffset: {width: 3, height: 3},
-    marginVertical: 10,
-    shadowOpacitcy: .9
+function App() {
+  const Tab = createBottomTabNavigator();
+  const [tasks, setTasks] = useState(Data);  
+
+  const addTaskFunction = (task) => {
+    let tmp = tasks.concat([task])
+    console.log(tmp.length)
+    setTasks(tmp)
   }
-});
+  
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" >
+          {(props) => <TaskList {...props} Data={tasks} />}
+        </Tab.Screen>
+        <Tab.Screen name="Details" component={DetailsScreen} />
+        <Tab.Screen name="AddTask">
+          {(props) => <AddTask {...props} AddTaskFunction={addTaskFunction}/>}
+        </Tab.Screen>
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;

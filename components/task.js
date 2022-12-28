@@ -12,7 +12,7 @@ const RenderRight = (progress, dragX) => {
   )
 }
 
-export default function RenderItem(task, index){
+const Task = (task, index) => {
   let item = task.item
   let total = _.reduce(item.History, (sum, i) => i.count+sum, 0)
   let days = moment(item.End).diff(moment(item.Start), 'days')
@@ -69,3 +69,5 @@ const styles = StyleSheet.create({
     shadowOpacitcy: .9
   }
 });
+
+export default Task
