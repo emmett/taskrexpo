@@ -24,7 +24,6 @@ function App() {
 
   const addTaskFunction = (task) => {
     let tmp = tasks.concat([task])
-    console.log(tmp.length)
     setTasks(tmp)
   }
   
