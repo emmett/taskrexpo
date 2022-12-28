@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaView } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Import Components
@@ -19,8 +17,6 @@ function DetailsScreen() {
     </View>
   );
 }
-
-const Stack = createNativeStackNavigator();
 
 function App() {
   const Tab = createBottomTabNavigator();

@@ -19,32 +19,14 @@ https://reactnative.dev/docs/environment-setup
 
 * fix the props handoff > item.item/task.item is awkward af and my bad coding practice
 * Default of No Tasks Left
+* Task Input Validation
 * "Card" for Tomorrows
 * fix OB1 error in history calculation
 * store/generate new tasks
-  * Default is 365 days from today
-  * Tasks will create an object of goal dates
-      
-      ```
-      {
-        2022-12-01: {
-          goal: 55,
-          completed: 0
-        },
-        2022-12-02: {
-          goal: 55,
-          completed: 0
-        }
-        ...
-      }
-      ```
-    This will allow for computing and updating the goal after for a given date.
   * Should be able to update
     * Pace
     * End Date
     * Goal
-* Update dummy data generator for more realistic data
-* update started date bug for Moment
 * https://www.npmjs.com/package/react-swipeable-list 
  for multilist swipe actions
 
