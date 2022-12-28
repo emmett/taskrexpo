@@ -17,6 +17,8 @@ https://reactnative.dev/docs/environment-setup
 
 ## TODO / Musings
 
+* Bad updates on the date changes
+* Clear set on submit for UX Clarity
 * fix the props handoff > item.item/task.item is awkward af and my bad coding practice
 * Default of No Tasks Left
 * Task Input Validation
